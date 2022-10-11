@@ -1,5 +1,6 @@
 package com.example.quizapp
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -26,9 +27,20 @@ class MainActivity : AppCompatActivity() {
         loadQuestions()
         wireWidgets()
 
+        //get the first question, set up the textViews
+        val scoreText = getString(R.string.main_score)
+        textView_score.text = "$scoreText ${quiz.score}"
+
+
+        buttonTrue.setOnClickListener {
+            quiz.checkAnswer(true)
+        }
+
+        buttonFalse.setOnClickListener {
+            quiz.checkAnswer(false)
+        }
+
     }
-
-
 
 
     private fun wireWidgets() {
@@ -59,4 +71,6 @@ class MainActivity : AppCompatActivity() {
         val questions = gson.fromJson<List<Question>>(jsonString, type)
 
     }
+
+
 }
