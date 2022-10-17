@@ -1,5 +1,7 @@
 package com.example.quizapp
 
+import android.widget.Toast
+
 class Quiz(val questions: List<Question>) {
     //variables to track score, current question
 
@@ -8,7 +10,8 @@ class Quiz(val questions: List<Question>) {
     //give the final score, reset the quiz?, shuffle questions?
 
     var currentScore = 0
-    var numQuestions = 0
+    var numQuestion = 0
+    var currentQuestion = questions[numQuestion].question
 
     fun checkAnswer(answer: Boolean): Unit {
         if (answer.equals(questions)) {
@@ -18,7 +21,20 @@ class Quiz(val questions: List<Question>) {
         else {
 
         }
-        numQuestions += 1
+        numQuestion += 1
     }
+
+    fun nextQuestion() : Boolean{
+        return numQuestion <9
+
+
+
+
+    }
+
+    fun finalScore() : String {
+        return "you got: "; "$currentScore"
+    }
+
 
 }

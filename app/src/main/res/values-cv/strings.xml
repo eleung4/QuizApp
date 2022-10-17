@@ -3,6 +3,5 @@
     <string name="main_true">true</string>
     <string name="main_false">false</string>
     <string name="main_score">Score</string>
-    <string name="main_question">Question</string>
-    <string name="main_question">Q</string>
+    <string name="app_name">Quiz App</string>
 </resources>

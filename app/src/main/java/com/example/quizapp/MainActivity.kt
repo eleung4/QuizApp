@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
@@ -18,8 +19,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var quiz : Quiz
     lateinit var buttonTrue : Button
     lateinit var buttonFalse : Button
-    lateinit var textView : TextView
-    lateinit var textView2 : TextView
+    lateinit var textView_question : TextView
+    lateinit var textView_points : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,25 +30,50 @@ class MainActivity : AppCompatActivity() {
 
         //get the first question, set up the textViews
         val scoreText = getString(R.string.main_score)
-        textView_score.text = "$scoreText ${quiz.score}"
-
+        textView_points.text = "$scoreText ${quiz.currentScore}"
 
         buttonTrue.setOnClickListener {
             quiz.checkAnswer(true)
+            quiz.nextQuestion()
+            nextQuestion2()
+            textView_points.text = "$scoreText ${quiz.currentScore}"
+
+
         }
+
 
         buttonFalse.setOnClickListener {
             quiz.checkAnswer(false)
+            showQuestion()
+            Toast.makeText( this, "u wrong", Toast.LENGTH_SHORT).show()
+
         }
 
+    }
+
+    private fun showQuestion() {
+        if(quiz.nextQuestion()) {
+            "${quiz.currentQuestion}"
+        }
+        else {
+            quiz.finalScore()
+
+        }
+    }
+
+    private fun nextQuestion2() {
+        quiz.numQuestion++
+        quiz.currentScore++
     }
 
 
     private fun wireWidgets() {
         buttonTrue = findViewById(R.id.button_MainActivity_true)
         buttonFalse = findViewById(R.id.button_MainActivity_false)
-        textView = findViewById(R.id.textView_MainActivity_question)
-        textView2 = findViewById(R.id.textView2_MainActivity_points)
+        textView_question = findViewById(R.id.textView_MainActivity_question)
+        textView_question.text = "${quiz.currentQuestion}"
+        textView_points = findViewById(R.id.textView2_MainActivity_points)
+
     }
 
     private fun loadQuestions() {
@@ -69,6 +95,7 @@ class MainActivity : AppCompatActivity() {
 
         val type = object : TypeToken<List<Question>>() { }.type
         val questions = gson.fromJson<List<Question>>(jsonString, type)
+        quiz = Quiz(questions)
 
     }
 
