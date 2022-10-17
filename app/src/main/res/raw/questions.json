@@ -1,11 +1,11 @@
 [
   {
-    "question": "Ellen is a cha cha",
+    "question": "Amanda's favorite animals are cats",
     "answer": true
   },
 
   {
-    "question": "Amanda is a chå châ",
+    "question": "Animals favorite cats are Amanda",
     "answer": false
   },
 
@@ -20,37 +20,37 @@
   },
 
   {
-    "question": "Why is life",
+    "question": "Cats don't taste sweetness",
+    "answer": true
+  },
+
+  {
+    "question": "The Calvin Cycle produces glucose",
+    "answer": true
+  },
+
+  {
+    "question": "Reduction is losing elections",
     "answer": false
   },
 
   {
-    "question": "How much do you lift bro",
+    "question": "Ellen's favorite animal is a bluebird",
     "answer": false
   },
 
   {
-    "question": "raw raw raw raw raw",
+    "question": "The Krebs Cycle is aerobic.",
+    "answer": true
+  },
+
+  {
+    "question": "The Krebs Cycle produced many oxidized electron carriers",
     "answer": false
   },
 
   {
-    "question": "If ur happy and yk it clap your hands",
-    "answer": false
-  },
-
-  {
-    "question": "a",
-    "answer": false
-  },
-
-  {
-    "question": "a",
-    "answer": false
-  },
-
-  {
-    "question": "a",
-    "answer": false
+    "question": "The knot in pretzels represent hands clasped in prayer",
+    "answer": true
   }
 ]

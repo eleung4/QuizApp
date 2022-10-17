@@ -15,8 +15,7 @@ class Quiz(val questions: List<Question>) {
 
     fun checkAnswer(answer: Boolean): Unit {
         if (answer.equals(questions)) {
-            currentScore++
-
+            ++currentScore
         }
         else {
 
@@ -25,7 +24,7 @@ class Quiz(val questions: List<Question>) {
     }
 
     fun nextQuestion() : Boolean{
-        return numQuestion <9
+        return numQuestion <12
 
 
 

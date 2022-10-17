@@ -44,26 +44,22 @@ class MainActivity : AppCompatActivity() {
 
         buttonFalse.setOnClickListener {
             quiz.checkAnswer(false)
-            showQuestion()
+            quiz.nextQuestion()
+            nextQuestion2()
+            textView_points.text = "$scoreText ${quiz.currentScore}"
             Toast.makeText( this, "u wrong", Toast.LENGTH_SHORT).show()
 
         }
 
     }
 
-    private fun showQuestion() {
-        if(quiz.nextQuestion()) {
-            "${quiz.currentQuestion}"
-        }
-        else {
-            quiz.finalScore()
+    //see if check question can be used as an if statement, stop the crashes after 5 questions
 
-        }
-    }
 
     private fun nextQuestion2() {
         quiz.numQuestion++
         quiz.currentScore++
+        textView_question.text = quiz.questions[quiz.numQuestion].question
     }
 
 
